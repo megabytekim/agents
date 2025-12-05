@@ -2025,6 +2025,34 @@
         "./skills/debugging-strategies",
         "./skills/monorepo-management"
       ]
+    },
+    {
+      "name": "reading-club-experience",
+      "source": "./plugins/reading-club-experience",
+      "description": "독서모임을 위한 책 기반 체험 큐레이터. 책의 주제와 테마를 분석하고 한국에서 할 수 있는 관련 체험 활동을 추천합니다",
+      "version": "1.0.0",
+      "author": {
+        "name": "Your Name",
+        "url": "https://github.com/yourusername"
+      },
+      "homepage": "https://github.com/wshobson/agents",
+      "repository": "https://github.com/wshobson/agents",
+      "license": "MIT",
+      "keywords": [
+        "reading",
+        "book-club",
+        "korea",
+        "experience",
+        "culture",
+        "activity"
+      ],
+      "category": "lifestyle",
+      "strict": false,
+      "commands": [],
+      "agents": [
+        "./agents/book-experience-curator.md"
+      ],
+      "skills": []
     }
   ]
 }
