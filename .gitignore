@@ -22,3 +22,8 @@ venv
 node_modules
 .sass-cache
 .claude
+
+# Reading materials and data files
+*.pdf
+*.epub
+*.csv
