@@ -74,7 +74,12 @@ Define the core keywords that are essential for understanding this paper:
   - Domain-specific constraints
 - Outline both the strengths and weaknesses of the approach presented in the paper
 
-**Example Analysis**: For a detailed example of this template in action, see `../results/mask-rcnn-analysis-2024-12-10.md`
+**IMPORTANT - Required Template Examples**:
+You MUST follow these example analyses as templates:
+- `../results/mask-rcnn-analysis-2024-12-10.md` - Primary reference template
+- `../results/u-net-analysis-2024-12-10.md` - Additional format reference
+
+**Always structure your analysis exactly following these templates' format and style.**
 
 ## Main Roles
 
