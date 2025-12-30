@@ -60,6 +60,32 @@ agent experience-scout
 
 ---
 
+### 3. currency-advisor
+**환전 어드바이저 - 여행 예산 계산 및 환전 가이드**
+
+여행 기간과 스타일에 맞는 예산을 계산하고, 필요한 환전 금액과 최적의 환전 방법을 추천하는 에이전트입니다.
+
+#### 주요 기능
+- 💰 **예산 계산**: 기간/인원/스타일별 상세 예산
+- 💱 **환율 정보**: 실시간 환율 및 환전소 비교
+- 📊 **카테고리별 분석**: 식사, 교통, 관광, 숙박, 쇼핑
+- 💳 **현금 vs 카드**: 최적 비율 및 사용 전략
+- 🎯 **환전 타이밍**: 한국/현지 환전 비율 추천
+- 📍 **환전소 추천**: 한국 및 현지 추천 장소
+- 💡 **절약 팁**: 예산 절약 및 안전 관리
+
+#### 사용 방법
+```bash
+agent currency-advisor
+
+# 예시 질문
+"이집트 7박 9일 환전 얼마나 해야 해?"
+"카이로 여행 예산 계산해줘"
+"이집트 환전 어디서 하는 게 좋아?"
+```
+
+---
+
 ## 워크플로우 예시
 
 ### 여행 계획 전체 흐름
@@ -88,6 +114,14 @@ agent experience-scout
 → 호텔 옵션 비교 및 예약 링크
 → `results/experiences/cairo-zamalek-hotel-2025-12-08.md` 저장
 
+**Step 4: 예산 및 환전 계산**
+```bash
+agent currency-advisor
+> "이집트 7박 9일 여행 예산 계산해줘"
+```
+→ 카테고리별 예산, 환율 정보, 환전 전략
+→ `results/budget/egypt-7d9n-budget-2025-12-11.md` 저장
+
 ---
 
 ## 디렉토리 구조
@@ -96,14 +130,17 @@ agent experience-scout
 plugins/travel-curator/
 ├── agents/
 │   ├── destination-explorer.md      # 도시 탐험가
-│   └── experience-scout.md          # 경험 스카우트
+│   ├── experience-scout.md          # 경험 스카우트
+│   └── currency-advisor.md          # 환전 어드바이저
 ├── results/
 │   ├── destinations/                # 도시별 가이드
 │   │   ├── egypt-cairo-2025-12-08.md
 │   │   └── egypt-luxor-2025-12-08.md
-│   └── experiences/                 # 체험/숙소 검색 결과
-│       ├── luxor-balloon-tour-2025-12-08.md
-│       └── cairo-pyramid-tour-2025-12-08.md
+│   ├── experiences/                 # 체험/숙소 검색 결과
+│   │   ├── luxor-balloon-tour-2025-12-08.md
+│   │   └── cairo-pyramid-tour-2025-12-08.md
+│   └── budget/                      # 예산 및 환전 가이드
+│       └── egypt-7d9n-budget-2025-12-11.md
 └── README.md
 ```
 
@@ -174,6 +211,30 @@ plugins/travel-curator/
 - 여행 스타일 (럭셔리/중간/백패커)
 - 우선순위 (가격/품질/편의성)
 
+### currency-advisor 활용
+
+**질문 팁**
+```bash
+✅ "이집트 7박 9일 2인 여행 예산 중급"
+✅ "카이로 5일 백패커 스타일 환전 얼마?"
+✅ "이집트 환전 한국에서 vs 현지에서"
+
+❌ "여행 비용"  (구체적이지 않음)
+❌ "환전"       (기간/스타일 명시 필요)
+```
+
+**정보 제공하면 좋은 것**
+- 여행 기간 (X박 X일)
+- 여행 인원
+- 여행 스타일 (저예산/중급/럭셔리)
+- 주요 계획 (투어, 쇼핑 등)
+
+**결과 활용하기**
+- 카테고리별 예산으로 지출 계획
+- 환전 전략으로 타이밍 결정
+- 카드 추천으로 카드 준비
+- 절약 팁으로 비용 절감
+
 ---
 
 ## 지원 범위
@@ -235,6 +296,16 @@ plugins/travel-curator/
 
 **예시 파일**:
 - `results/experiences/luxor-balloon-tour-2025-12-08.md`
+
+### budget/ (예산 및 환전 가이드)
+- 카테고리별 예산 계산
+- 환율 정보 및 환전소 비교
+- 현금 vs 카드 전략
+- 환전 타이밍 및 장소
+- 절약 팁 및 안전 가이드
+
+**예시 파일**:
+- `results/budget/egypt-7d9n-budget-2025-12-11.md`
 
 ---
 
