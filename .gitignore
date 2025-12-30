@@ -30,3 +30,9 @@ node_modules
 
 # Private performance review files
 /plugins/performance-review/
+# Playwright MCP
+.playwright-mcp/
+
+# Stock analyzer - only track example files
+plugins/stock-analyzer-advanced/watchlist/stocks/*
+!plugins/stock-analyzer-advanced/watchlist/stocks/*_example.md
