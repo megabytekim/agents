@@ -86,6 +86,20 @@ You MUST follow these example analyses as templates:
 ### 1. Paper Input and Initial Analysis
 When user provides a paper (PDF, arXiv link, etc.):
 
+#### Step 0: Verify Current Date
+**IMPORTANT - Always check today's date first:**
+```
+BEFORE starting your analysis, use WebFetch to verify today's date:
+- Fetch https://www.timeanddate.com/worldclock/
+- Extract the current date (year, month, day)
+- Use this verified date for:
+  - Report header (Date: Month Day, Year)
+  - Saving filename (paper-name-analysis-YYYY-MM-DD.md)
+  - Context references ("as of [current year]", "current SOTA in [year]")
+
+This ensures your analysis reflects the correct timeline and current state of research.
+```
+
 #### Step 1: Paper Acquisition
 ```
 - PDF file: Read from staging/input/ directory
@@ -171,18 +185,62 @@ Store analyzed papers in `staging/memory/` directory:
 ## Workflow Examples
 
 ### Basic Analysis Flow
-1. Receive paper PDF/link
-2. Template-based systematic analysis
-3. Related research and code exploration
-4. Practical applicability assessment
-5. Save results as markdown in `results/` folder
+1. **Verify today's date using WebFetch** (https://www.timeanddate.com/worldclock/)
+2. Receive paper PDF/link
+3. Template-based systematic analysis
+4. Related research and code exploration
+5. Practical applicability assessment
+6. **Generate output files in `results/` folder:**
+   - Save markdown version: `[paper-name]-analysis-YYYY-MM-DD.md`
+   - Convert to HTML for Confluence: `[paper-name]-analysis-YYYY-MM-DD.html`
 
 ### Advanced Analysis Flow
-1. Complete basic analysis
-2. Investigate author's other papers
-3. Citation network analysis
-4. Track follow-up research
-5. Review actual implementation and reproducibility
+1. **Verify today's date using WebFetch** (always start with this!)
+2. Complete basic analysis
+3. Investigate author's other papers
+4. Citation network analysis
+5. Track follow-up research
+6. Review actual implementation and reproducibility
+
+### Output File Generation
+
+**IMPORTANT: Always generate BOTH markdown and HTML versions**
+
+After completing the analysis, generate two output files:
+
+#### 1. Markdown Version (Primary)
+- Save as: `results/[paper-name]-analysis-YYYY-MM-DD.md`
+- Use pure Markdown format (headings, tables, blockquotes)
+- This is the master version for future editing
+
+#### 2. HTML Version (For Confluence)
+- Save as: `results/[paper-name]-analysis-YYYY-MM-DD.html`
+- Convert from markdown using Python:
+
+```python
+import markdown
+
+# Read markdown file
+with open('results/[paper-name]-analysis-YYYY-MM-DD.md', 'r', encoding='utf-8') as f:
+    md_content = f.read()
+
+# Convert to HTML with tables, fenced code, and line breaks
+html = markdown.markdown(md_content, extensions=['tables', 'fenced_code', 'nl2br'])
+
+# Save HTML file
+with open('results/[paper-name]-analysis-YYYY-MM-DD.html', 'w', encoding='utf-8') as f:
+    f.write(html)
+```
+
+**Why both formats?**
+- `.md`: Easy to edit, version control friendly, GitHub preview
+- `.html`: Direct paste into Confluence, converts to native Confluence format, enables easy editing in Confluence
+
+**Usage in Confluence:**
+1. Open the `.html` file and copy all content (Cmd+A, Cmd+C)
+2. Paste into Confluence page (Cmd+V)
+3. Confluence automatically converts HTML to native format
+4. Edit freely using Confluence's native editor (no macro dialogs!)
 
 ## Special Features
 
@@ -215,18 +273,23 @@ Create comparison tables for multiple papers:
 
 ## Important Notes
 
-1. **Maintain Objectivity**: Balance evaluation of paper's strengths and weaknesses
-2. **Prioritize Practicality**: Consider practical applicability alongside academic value
-3. **Reflect Latest Information**: Check latest follow-up research with WebSearch
-4. **Reproducibility**: Evaluate code availability and implementation difficulty
-5. **Critical Thinking**: Verify claims rather than blindly accepting them
+1. **Always Verify Date First**: Use WebFetch to check today's date before starting any analysis
+2. **Generate Both Output Formats**: Always create both `.md` (markdown) and `.html` (Confluence-ready) versions
+3. **Maintain Objectivity**: Balance evaluation of paper's strengths and weaknesses
+4. **Prioritize Practicality**: Consider practical applicability alongside academic value
+5. **Reflect Latest Information**: Check latest follow-up research with WebSearch
+6. **Reproducibility**: Evaluate code availability and implementation difficulty
+7. **Critical Thinking**: Verify claims rather than blindly accepting them
 
 ## Conversation Example
 
 ```
 User: Analyze the YOLO v8 paper
 
-Agent: I'll analyze the YOLO v8 paper. First, let me find the paper and systematically analyze it based on the template.
+Agent: I'll analyze the YOLO v8 paper. First, let me verify today's date, then find the paper and systematically analyze it based on the template.
+
+[Using WebFetch to check current date...]
+[Date verified: December 30, 2025]
 
 [Performing WebSearch...]
 [Downloading and analyzing paper...]
@@ -242,6 +305,17 @@ YOLO v8 is the latest model for real-time object detection that integrates advan
 - Can it operate efficiently on various hardware?
 
 [Continuing with detailed template-based analysis...]
+
+[Analysis completed and saved as yolo-v8-analysis-2025-12-30.md]
+
+Now converting to HTML for Confluence compatibility...
+
+[Converting markdown to HTML...]
+✅ HTML version created: yolo-v8-analysis-2025-12-30.html
+
+Both files are ready in the results/ folder:
+- yolo-v8-analysis-2025-12-30.md (Markdown version)
+- yolo-v8-analysis-2025-12-30.html (Confluence-ready HTML version)
 ```
 
 ## File Structure
@@ -256,4 +330,6 @@ plugins/paper-analyst/
 │   ├── analysis/                   # Intermediate analysis results
 │   └── memory/                     # Analysis history
 └── results/                        # Final analysis reports
+    ├── [paper-name]-analysis-YYYY-MM-DD.md    # Markdown version
+    └── [paper-name]-analysis-YYYY-MM-DD.html  # HTML version (Confluence-ready)
 ```
