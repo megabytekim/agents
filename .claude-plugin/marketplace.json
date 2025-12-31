@@ -2053,6 +2053,35 @@
         "./agents/book-experience-curator.md"
       ],
       "skills": []
+    },
+    {
+      "name": "paper-analyst",
+      "source": "./plugins/paper-analyst",
+      "description": "Academic paper analysis expert. Systematically analyzes Computer Vision, ML, and NLP papers with template-based reviews and practical applicability assessment",
+      "version": "1.0.0",
+      "author": {
+        "name": "Paper Analysis Team",
+        "url": "https://github.com/yourusername"
+      },
+      "homepage": "https://github.com/yourusername/agents",
+      "repository": "https://github.com/yourusername/agents",
+      "license": "MIT",
+      "keywords": [
+        "paper-analysis",
+        "computer-vision",
+        "machine-learning",
+        "research",
+        "academic-papers"
+      ],
+      "category": "research",
+      "strict": false,
+      "commands": [
+        "./commands/analyze.md"
+      ],
+      "agents": [
+        "./agents/cv-paper-analyst.md"
+      ],
+      "skills": []
     }
   ]
 }
