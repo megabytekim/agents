@@ -2082,6 +2082,36 @@
         "./agents/cv-paper-analyst.md"
       ],
       "skills": []
+    },
+    {
+      "name": "stock-analyzer-advanced",
+      "source": "./plugins/stock-analyzer-advanced",
+      "description": "고급 주식 분석 도구. MI(Market Intelligence)와 PI(Portfolio Intelligence) 에이전트의 협업으로 종합적인 기업 분석을 제공합니다",
+      "version": "1.0.0",
+      "author": {
+        "name": "Stock Analysis Team",
+        "url": "https://github.com/yourusername"
+      },
+      "homepage": "https://github.com/yourusername/agents",
+      "repository": "https://github.com/yourusername/agents",
+      "license": "MIT",
+      "keywords": [
+        "stock-analysis",
+        "investment",
+        "market-intelligence",
+        "portfolio-management",
+        "financial-analysis"
+      ],
+      "category": "finance",
+      "strict": false,
+      "commands": [
+        "./commands/기업분석.md"
+      ],
+      "agents": [
+        "./agents/market-intelligence.md",
+        "./agents/portfolio-intelligence.md"
+      ],
+      "skills": []
     }
   ]
 }
